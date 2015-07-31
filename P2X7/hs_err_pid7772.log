@@ -1,0 +1,16 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+# java.lang.OutOfMemoryError: requested 1310720 bytes for GrET in C:\build_area\jdk6_17\hotspot\src\share\vm\utilities\growableArray.cpp. Out of swap space?
+#
+#  Internal Error (allocation.inline.hpp:39), pid=7772, tid=124
+#  Error: GrET in C:\build_area\jdk6_17\hotspot\src\share\vm\utilities\growableArray.cpp
+#
+# JRE version: 6.0_17-b04
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (14.3-b01 mixed mode windows-amd64 )
+# If you would like to submit a bug report, please visit:
+#   
+#
+
+
+VMThread [id=124]

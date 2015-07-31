@@ -1,0 +1,193 @@
+modelling=require('./model.js');
+
+testing=require('./modelTesting.js');
+
+fs=require('fs')
+
+function makeGlobal(o){
+    for (i in o){
+	global[i]=o[i];
+    }
+}
+
+makeGlobal(modelling);
+makeGlobal(testing)
+
+stateNames=['C1','C2','C3','C4','C5','C6','C7','C8','Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q8','D1','D2','D3','D4','Z'];
+paramNames=['k1','k2','k3','k4','k5','k6','k7','k8','k9','k10','k11','k12','k13','k14','k15','k16','k17','k18','k19','k20','k21','k22','k23','k24','L11','L12','L13','L14','L21','L22','L23','L24','L31','L32','L33','L34','L41','L42','L43','L44','L51','L52','L53','L54','L61','L62','L63','L64','H1','H11','H12','H13','kd','ks','kd1','ks1','kd2','ks2','kd3','ks3','H3','g1','g2','E1','E2','delta','epsilon','mu','A','J','V'];
+
+
+m=new model('P2X4freeDe');
+
+m.addState(stateNames);
+m.addParam(paramNames);
+
+m.addAuxiliary();
+
+makeGlobal(m.states)
+
+open11=times('k2','A');
+open12=times('k4','A');
+open13=times('k6','A');
+open21=times('k8','A');
+open22=times('k10','A');
+open23=times('k12','A');
+open31=times('k14','A');
+open32=times('k16','A');
+open33=times('k18','A');
+open41=times('k20','A');
+open42=times('k22','A');
+open43=times('k24','A');
+
+
+function hill(x,ec50,n) {
+	if (n==undefined) {
+		n=1;
+	}
+	return divide(new power(x,n),plus(new power(x,n),new power(ec50,n)))
+}
+
+hill1=hill('J','delta',4);
+hill2=hill('J','epsilon',4);
+hill3=hill('J','mu',4);
+
+IVM11=times('L21',hill1);
+IVM12=times('L22',hill1);
+IVM13=times('L23',hill1);
+IVM14=times('L24',hill1);
+
+IVM21=times('L41',hill2);
+IVM22=times('L42',hill2);
+IVM23=times('L43',hill2);
+IVM24=times('L44',hill2);
+
+IVM31=times('L61',hill3);
+IVM32=times('L62',hill3);
+IVM33=times('L63',hill3);
+IVM34=times('L64',hill3);
+
+
+////////////////
+//Horizontal Links
+//////////////
+
+//Naive Row
+m.linkStates(C1,C2,open11,'k1');
+m.linkStates(C2,Q1,open12,'k3');
+m.linkStates(Q1,Q2,open13,'k5');
+
+
+
+//1st IVM Row
+m.linkStates(C3,C4,open21,'k7');
+m.linkStates(C4,Q3,open22,'k9');
+m.linkStates(Q3,Q4,open23,'k11');
+
+
+
+//2nd IVM Row
+m.linkStates(C5,C6,open31,'k13');
+m.linkStates(C6,Q5,open32,'k15');
+m.linkStates(Q5,Q6,open33,'k17');
+
+
+
+//3rd IVM Row
+m.linkStates(C7,C8,open41,'k19');
+m.linkStates(C8,Q7,open42,'k21');
+m.linkStates(Q7,Q8,open43,'k23');
+
+
+
+//Desensitized Row
+m.linkStates(D1,D2,open11,'k1');
+m.linkStates(D2,D3,open12,'k3');
+m.linkStates(D3,D4,open13,'k5');
+
+
+
+////////////
+//Vertical Links
+///////////
+
+//Desensitization
+m.linkStates(C2,D2,'kd','ks');
+m.linkStates(Q1,D3,'kd','ks');
+m.linkStates(Q2,D4,'kd','ks');
+
+m.linkStates(C4,D2,'kd1',times('ks1',hill1));
+m.linkStates(Q3,D3,'kd1',times('ks1',hill1));
+m.linkStates(Q4,D4,'kd1',times('ks1',hill1));
+
+m.linkStates(C6,D2,'kd2',times('ks2',hill2));
+m.linkStates(Q5,D3,'kd2',times('ks2',hill2));
+m.linkStates(Q6,D4,'kd2',times('ks2',hill2));
+
+m.linkStates(C8,D2,'kd3',times('ks3',hill3));
+m.linkStates(Q7,D3,'kd3',times('ks3',hill3));
+m.linkStates(Q8,D4,'kd3',times('ks3',hill3));
+
+
+
+
+//1st Binding of IVM
+m.linkStates(C1,C3,IVM11,'L11');
+m.linkStates(C2,C4,IVM12,'L12');
+m.linkStates(Q1,Q3,IVM13,'L13');
+m.linkStates(Q2,Q4,IVM14,'L14');
+
+
+
+
+//2nd binding of IVM
+m.linkStates(C3,C5,IVM21,'L31');
+m.linkStates(C4,C6,IVM22,'L32');
+m.linkStates(Q3,Q5,IVM23,'L33');
+m.linkStates(Q4,Q6,IVM24,'L34');
+
+
+
+//3rd binding of IVM
+m.linkStates(C5,C7,IVM31,'L51');
+m.linkStates(C6,C8,IVM32,'L52');
+m.linkStates(Q5,Q7,IVM33,'L53');
+m.linkStates(Q6,Q8,IVM34,'L54');
+
+
+
+
+//Internalization 
+m.linkStates(D4,Z,'H3');
+//Externalization
+m.linkStates(D1,C1,'H1');
+m.linkStates(D1,C3,times('H11',hill1));
+m.linkStates(D1,C5,times('H12',hill2));
+m.linkStates(D1,C7,times('H13',hill3));
+//m.linkStates(Z,C1,'H4');
+
+
+//opened=plus(Q1,Q2,times(plus(Q3,Q4),'a1'),times(plus(Q5,Q6),'a2'),times(plus(Q7,Q8),'a3'));
+opened=plus(Q1,Q2);
+fopened=minus('V','E1');
+Iopened=times('g1',opened,fopened)
+
+//dilated='0';
+dilated=plus(Q3,Q4,Q5,Q6,Q7,Q8);
+fdilated=minus('V','E2');
+Idilated=times('g2',dilated,fdilated)
+
+Itot=plus(Iopened,Idilated);
+
+
+m.current=times('10^12',Itot);
+m.opened=opened;
+m.dilated=dilated;
+
+
+
+m.heaviside=['A','J']
+
+m.watched=[Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8]
+
+
+createBaseFiles(m);

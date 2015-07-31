@@ -1,0 +1,22 @@
+P2X4freeDefree.getTotalCurrent=@ getTotalCurrentP2X4freeDefree;
+P2X4freeDefree.ode=@ modelODEP2X4freeDefree;
+P2X4freeDefree.pulseODE=@ modelPulseODEP2X4freeDefree;
+P2X4freeDefree.perfusionResponse=@ perfusionResponseP2X4freeDefree;
+P2X4freeDefree.naivePerfusionResponse=@ naivePerfusionResponseP2X4freeDefree;
+P2X4freeDefree.naivePerfusionResponseIV=@ naivePerfusionResponseIVP2X4freeDefree;
+P2X4freeDefree.naivePerfusionSSE=@ naivePerfusionSSEP2X4freeDefree;
+P2X4freeDefree.naivePerfusionErrVec=@ naivePerfusionErrVecP2X4freeDefree;
+P2X4freeDefree.naivePerfusionVarSSE=@ naivePerfusionVarSSEP2X4freeDefree;
+P2X4freeDefree.naivePerfusionResponseExp=@ naivePerfusionResponseP2X4freeDefree;
+P2X4freeDefree.naivePerfusionSSEExp=@ naivePerfusionSSEP2X4freeDefree;
+P2X4freeDefree.naivePerfusionSSEIntegrator=@ naivePerfusionSSEIntegratorP2X4freeDefree;
+P2X4freeDefree.setParams=@ setParamsP2X4freeDefree;
+P2X4freeDefree.setAuxiliary=@ setAuxiliaryP2X4freeDefree;
+P2X4freeDefree.overrideGlobals=@ overrideGlobalsP2X4freeDefree;
+P2X4freeDefree.getOpen=@ getOpenP2X4freeDefree;
+P2X4freeDefree.getDilated=@ getDilatedP2X4freeDefree;
+P2X4freeDefree.getWatchedStates=@ getWatchedStatesP2X4freeDefree;
+P2X4freeDefree.getWatchedLabels=@ getWatchedLabelsP2X4freeDefree;
+P2X4freeDefree.naive=@ getNaiveP2X4freeDefree;
+
+save('P2X4freeDefree.mat','P2X4freeDefree')

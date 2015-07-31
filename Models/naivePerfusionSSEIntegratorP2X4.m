@@ -1,0 +1,10 @@
+function err = naivePerfusionSSEIntegratorP2X4(ton,toff,Ttot,amp,T,I)
+    global V
+	%#codgen;
+	naive=zeros(1,17);
+	naive(1)=1;
+	V=-60*10^-3;
+	
+	err=errorIntegratorP2X4(ton,toff,Ttot,amp,naive,T,I,V);
+
+end

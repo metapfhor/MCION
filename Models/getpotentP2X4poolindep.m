@@ -1,0 +1,20 @@
+potentP2X4poolindep.getTotalCurrent=@ getTotalCurrentpotentP2X4poolindep;
+potentP2X4poolindep.ode=@ modelODEpotentP2X4poolindep;
+potentP2X4poolindep.pulseODE=@ modelPulseODEpotentP2X4poolindep;
+potentP2X4poolindep.perfusionResponse=@ perfusionResponsepotentP2X4poolindep;
+potentP2X4poolindep.naivePerfusionResponse=@ naivePerfusionResponsepotentP2X4poolindep;
+potentP2X4poolindep.naivePerfusionSSE=@ naivePerfusionSSEpotentP2X4poolindep;
+potentP2X4poolindep.naivePerfusionVarSSE=@ naivePerfusionVarSSEpotentP2X4poolindep;
+potentP2X4poolindep.naivePerfusionResponseExp=@ naivePerfusionResponsepotentP2X4poolindep;
+potentP2X4poolindep.naivePerfusionSSEExp=@ naivePerfusionSSEpotentP2X4poolindep;
+potentP2X4poolindep.naivePerfusionSSEIntegrator=@ naivePerfusionSSEIntegratorpotentP2X4poolindep;
+potentP2X4poolindep.setParams=@ setParamspotentP2X4poolindep;
+potentP2X4poolindep.setAuxiliary=@ setAuxiliarypotentP2X4poolindep;
+potentP2X4poolindep.overrideGlobals=@ overrideGlobalspotentP2X4poolindep;
+potentP2X4poolindep.getOpen=@ getOpenpotentP2X4poolindep;
+potentP2X4poolindep.getDilated=@ getDilatedpotentP2X4poolindep;
+potentP2X4poolindep.getWatchedStates=@ getWatchedStatespotentP2X4poolindep;
+potentP2X4poolindep.getWatchedLabels=@ getWatchedLabelspotentP2X4poolindep;
+potentP2X4poolindep.naive=@ getNaivepotentP2X4poolindep;
+
+save('potentP2X4poolindep.mat','potentP2X4poolindep')

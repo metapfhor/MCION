@@ -1,0 +1,25 @@
+anmarP2X4sense.getTotalCurrent=@ getTotalCurrentanmarP2X4sense;
+anmarP2X4sense.name='anmarP2X4sense';
+anmarP2X4sense.ode=@ modelODEanmarP2X4sense;
+anmarP2X4sense.pulseODE=@ modelPulseODEanmarP2X4sense;
+anmarP2X4sense.perfusionResponse=@ perfusionResponseanmarP2X4sense;
+anmarP2X4sense.naivePerfusionResponse=@ naivePerfusionResponseanmarP2X4sense;
+anmarP2X4sense.naivePerfusionResponseIV=@ naivePerfusionResponseIVanmarP2X4sense;
+anmarP2X4sense.naivePerfusionSSE=@ naivePerfusionSSEanmarP2X4sense;
+anmarP2X4sense.naivePerfusionErrVec=@ naivePerfusionErrVecanmarP2X4sense;
+anmarP2X4sense.naivePerfusionVarSSE=@ naivePerfusionVarSSEanmarP2X4sense;
+anmarP2X4sense.naivePerfusionResponseExp=@ naivePerfusionResponseanmarP2X4sense;
+anmarP2X4sense.naivePerfusionSSEExp=@ naivePerfusionSSEanmarP2X4sense;
+anmarP2X4sense.naivePerfusionSSEIntegrator=@ naivePerfusionSSEIntegratoranmarP2X4sense;
+anmarP2X4sense.setParams=@ setParamsanmarP2X4sense;
+anmarP2X4sense.setAuxiliary=@ setAuxiliaryanmarP2X4sense;
+anmarP2X4sense.overrideGlobals=@ overrideGlobalsanmarP2X4sense;
+anmarP2X4sense.getOpen=@ getOpenanmarP2X4sense;
+anmarP2X4sense.getDilated=@ getDilatedanmarP2X4sense;
+anmarP2X4sense.getWatchedStates=@ getWatchedStatesanmarP2X4sense;
+anmarP2X4sense.getInfGeneratorMatrix=@ generatorMatrixanmarP2X4sense;
+anmarP2X4sense.getWatchedLabels=@ getWatchedLabelsanmarP2X4sense;
+anmarP2X4sense.naive=@ getNaiveanmarP2X4sense;
+anmarP2X4sense.getParamTransitions=@ getParamTransitionsanmarP2X4sense;
+
+save('anmarP2X4sense.mat','anmarP2X4sense')

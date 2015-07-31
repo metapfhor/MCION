@@ -1,0 +1,25 @@
+P2X4Inact2factor2.getTotalCurrent=@ getTotalCurrentP2X4Inact2factor2;
+P2X4Inact2factor2.name='P2X4Inact2factor2';
+P2X4Inact2factor2.ode=@ modelODEP2X4Inact2factor2;
+P2X4Inact2factor2.pulseODE=@ modelPulseODEP2X4Inact2factor2;
+P2X4Inact2factor2.perfusionResponse=@ perfusionResponseP2X4Inact2factor2;
+P2X4Inact2factor2.naivePerfusionResponse=@ naivePerfusionResponseP2X4Inact2factor2;
+P2X4Inact2factor2.naivePerfusionResponseIV=@ naivePerfusionResponseIVP2X4Inact2factor2;
+P2X4Inact2factor2.naivePerfusionSSE=@ naivePerfusionSSEP2X4Inact2factor2;
+P2X4Inact2factor2.naivePerfusionErrVec=@ naivePerfusionErrVecP2X4Inact2factor2;
+P2X4Inact2factor2.naivePerfusionVarSSE=@ naivePerfusionVarSSEP2X4Inact2factor2;
+P2X4Inact2factor2.naivePerfusionResponseExp=@ naivePerfusionResponseP2X4Inact2factor2;
+P2X4Inact2factor2.naivePerfusionSSEExp=@ naivePerfusionSSEP2X4Inact2factor2;
+P2X4Inact2factor2.naivePerfusionSSEIntegrator=@ naivePerfusionSSEIntegratorP2X4Inact2factor2;
+P2X4Inact2factor2.setParams=@ setParamsP2X4Inact2factor2;
+P2X4Inact2factor2.setAuxiliary=@ setAuxiliaryP2X4Inact2factor2;
+P2X4Inact2factor2.overrideGlobals=@ overrideGlobalsP2X4Inact2factor2;
+P2X4Inact2factor2.getOpen=@ getOpenP2X4Inact2factor2;
+P2X4Inact2factor2.getDilated=@ getDilatedP2X4Inact2factor2;
+P2X4Inact2factor2.getWatchedStates=@ getWatchedStatesP2X4Inact2factor2;
+P2X4Inact2factor2.getInfGeneratorMatrix=@ generatorMatrixP2X4Inact2factor2;
+P2X4Inact2factor2.getWatchedLabels=@ getWatchedLabelsP2X4Inact2factor2;
+P2X4Inact2factor2.naive=@ getNaiveP2X4Inact2factor2;
+P2X4Inact2factor2.getParamTransitions=@ getParamTransitionsP2X4Inact2factor2;
+
+save('P2X4Inact2factor2.mat','P2X4Inact2factor2')

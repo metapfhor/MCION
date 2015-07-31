@@ -1,0 +1,4 @@
+function generatorMatrixcompP2X7()
+global k1 k2 k3 k4 k5 k6 L1 L2 L3 H1 H2 H3 H4 H5 H6 H7 g12 g34 E12 E34 A V EC n k1eff k2eff k3eff k4eff k5eff k6eff Q;
+Q=[-3*k2eff*A,3*k2eff*A,0,0,0,0,0,0,0,0,0,0;k1eff,-k1eff-2*k4eff*A-H3,0,0,2*k4eff*A,0,0,0,0,H3,0,0;0,0,-k1eff-2*k2eff*A,k1eff,0,0,0,2*k2eff*A,0,0,0,0;L1,0,3*k2eff*A,-3*k2eff*A-L1,0,0,0,0,0,0,0,0;0,2*k3eff,0,0,-2*k3eff-k6eff*A-H5,k6eff*A,0,0,0,0,H5,0;0,0,0,0,3*k5eff,-3*k5eff-L3-H7,L3,0,0,0,0,H7;0,0,0,0,0,L2,-3*k1eff-L2,3*k1eff,0,0,0,0;0,0,2*k1eff,0,0,0,k2eff*A,-2*k1eff-k2eff*A,0,0,0,0;H1,0,0,0,0,0,0,0,-3*k2eff*A-H1,3*k2eff*A,0,0;0,H2,0,0,0,0,0,0,k1eff,-k1eff-2*k4eff*A-H2,2*k4eff*A,0;0,0,0,0,H4,0,0,0,0,2*k3eff,-2*k3eff-k6eff*A-H4,k6eff*A;0,0,0,0,0,H6,0,0,0,0,3*k5eff,-3*k5eff-H6];
+end

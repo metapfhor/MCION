@@ -1,0 +1,24 @@
+P2X4Inact2block10.getTotalCurrent=@ getTotalCurrentP2X4Inact2block10;
+P2X4Inact2block10.name='P2X4Inact2block10';
+P2X4Inact2block10.ode=@ modelODEP2X4Inact2block10;
+P2X4Inact2block10.pulseODE=@ modelPulseODEP2X4Inact2block10;
+P2X4Inact2block10.perfusionResponse=@ perfusionResponseP2X4Inact2block10;
+P2X4Inact2block10.naivePerfusionResponse=@ naivePerfusionResponseP2X4Inact2block10;
+P2X4Inact2block10.naivePerfusionResponseIV=@ naivePerfusionResponseIVP2X4Inact2block10;
+P2X4Inact2block10.naivePerfusionSSE=@ naivePerfusionSSEP2X4Inact2block10;
+P2X4Inact2block10.naivePerfusionErrVec=@ naivePerfusionErrVecP2X4Inact2block10;
+P2X4Inact2block10.naivePerfusionVarSSE=@ naivePerfusionVarSSEP2X4Inact2block10;
+P2X4Inact2block10.naivePerfusionResponseExp=@ naivePerfusionResponseP2X4Inact2block10;
+P2X4Inact2block10.naivePerfusionSSEExp=@ naivePerfusionSSEP2X4Inact2block10;
+P2X4Inact2block10.naivePerfusionSSEIntegrator=@ naivePerfusionSSEIntegratorP2X4Inact2block10;
+P2X4Inact2block10.setParams=@ setParamsP2X4Inact2block10;
+P2X4Inact2block10.setAuxiliary=@ setAuxiliaryP2X4Inact2block10;
+P2X4Inact2block10.overrideGlobals=@ overrideGlobalsP2X4Inact2block10;
+P2X4Inact2block10.getOpen=@ getOpenP2X4Inact2block10;
+P2X4Inact2block10.getDilated=@ getDilatedP2X4Inact2block10;
+P2X4Inact2block10.getWatchedStates=@ getWatchedStatesP2X4Inact2block10;
+P2X4Inact2block10.getInfGeneratorMatrix=@ generatorMatrixP2X4Inact2block10;
+P2X4Inact2block10.getWatchedLabels=@ getWatchedLabelsP2X4Inact2block10;
+P2X4Inact2block10.naive=@ getNaiveP2X4Inact2block10;
+
+save('P2X4Inact2block10.mat','P2X4Inact2block10')

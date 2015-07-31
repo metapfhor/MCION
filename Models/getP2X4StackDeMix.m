@@ -1,0 +1,22 @@
+P2X4StackDeMix.getTotalCurrent=@ getTotalCurrentP2X4StackDeMix;
+P2X4StackDeMix.ode=@ modelODEP2X4StackDeMix;
+P2X4StackDeMix.pulseODE=@ modelPulseODEP2X4StackDeMix;
+P2X4StackDeMix.perfusionResponse=@ perfusionResponseP2X4StackDeMix;
+P2X4StackDeMix.naivePerfusionResponse=@ naivePerfusionResponseP2X4StackDeMix;
+P2X4StackDeMix.naivePerfusionResponseIV=@ naivePerfusionResponseIVP2X4StackDeMix;
+P2X4StackDeMix.naivePerfusionSSE=@ naivePerfusionSSEP2X4StackDeMix;
+P2X4StackDeMix.naivePerfusionErrVec=@ naivePerfusionErrVecP2X4StackDeMix;
+P2X4StackDeMix.naivePerfusionVarSSE=@ naivePerfusionVarSSEP2X4StackDeMix;
+P2X4StackDeMix.naivePerfusionResponseExp=@ naivePerfusionResponseP2X4StackDeMix;
+P2X4StackDeMix.naivePerfusionSSEExp=@ naivePerfusionSSEP2X4StackDeMix;
+P2X4StackDeMix.naivePerfusionSSEIntegrator=@ naivePerfusionSSEIntegratorP2X4StackDeMix;
+P2X4StackDeMix.setParams=@ setParamsP2X4StackDeMix;
+P2X4StackDeMix.setAuxiliary=@ setAuxiliaryP2X4StackDeMix;
+P2X4StackDeMix.overrideGlobals=@ overrideGlobalsP2X4StackDeMix;
+P2X4StackDeMix.getOpen=@ getOpenP2X4StackDeMix;
+P2X4StackDeMix.getDilated=@ getDilatedP2X4StackDeMix;
+P2X4StackDeMix.getWatchedStates=@ getWatchedStatesP2X4StackDeMix;
+P2X4StackDeMix.getWatchedLabels=@ getWatchedLabelsP2X4StackDeMix;
+P2X4StackDeMix.naive=@ getNaiveP2X4StackDeMix;
+
+save('P2X4StackDeMix.mat','P2X4StackDeMix')

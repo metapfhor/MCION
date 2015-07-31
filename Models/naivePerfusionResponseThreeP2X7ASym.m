@@ -1,0 +1,11 @@
+function [t,I,Y]=naivePerfusionResponseThreeP2X7ASym(ton,toff,Ttot,amp)
+global a b ra rb g12 E12;
+	dt=0.01;
+	A=@(t) amp*(heaviside(t-ton)-heaviside(t-toff));
+	
+	t=0:dt:Ttot.';
+	Y=zeros(length(t),1);
+	
+	Y(:,1)=-(1/2)*ra*a^2*amp^2*(a^2*amp^2+ra^2*a^2*amp^2-2*ra*a^2*amp^2+2*ra*a*amp*rb*b-2*rb*b*a*amp+2*a*amp*b+ra*a*amp*(a^2*amp^2-2*rb*b*a*amp+2*a*amp*b-2*ra*a^2*amp^2+rb^2*b^2-2*b^2*rb+2*ra*a*amp*rb*b+b^2+2*b*ra*a*amp+ra^2*a^2*amp^2)^(1/2)+2*b*ra*a*amp+a*amp*(a^2*amp^2-2*rb*b*a*amp+2*a*amp*b-2*ra*a^2*amp^2+rb^2*b^2-2*b^2*rb+2*ra*a*amp*rb*b+b^2+2*b*ra*a*amp+ra^2*a^2*amp^2)^(1/2)+rb^2*b^2+b^2-2*b^2*rb+b*(a^2*amp^2-2*rb*b*a*amp+2*a*amp*b-2*ra*a^2*amp^2+rb^2*b^2-2*b^2*rb+2*ra*a*amp*rb*b+b^2+2*b*ra*a*amp+ra^2*a^2*amp^2)^(1/2)+rb*b*(a^2*amp^2-2*rb*b*a*amp+2*a*amp*b-2*ra*a^2*amp^2+rb^2*b^2-2*b^2*rb+2*ra*a*amp*rb*b+b^2+2*b*ra*a*amp+ra^2*a^2*amp^2)^(1/2))*exp((-(1/2)*a*amp-(1/2)*rb*b-(1/2)*b-(1/2)*ra*a*amp+(1/2)*(a^2*amp^2-2*rb*b*a*amp+2*a*amp*b-2*ra*a^2*amp^2+rb^2*b^2-2*b^2*rb+2*ra*a*amp*rb*b+b^2+2*b*ra*a*amp+ra^2*a^2*amp^2)^(1/2))*t)/((b^2*rb+rb*b*a*amp+ra*a^2*amp^2)*(a^2*amp^2-2*rb*b*a*amp+2*a*amp*b-2*ra*a^2*amp^2+rb^2*b^2-2*b^2*rb+2*ra*a*amp*rb*b+b^2+2*b*ra*a*amp+ra^2*a^2*amp^2))-(1/2)*ra*a^2*amp^2*(a^2*amp^2+ra^2*a^2*amp^2-2*ra*a^2*amp^2+2*ra*a*amp*rb*b-2*rb*b*a*amp+2*a*amp*b-ra*a*amp*(a^2*amp^2-2*rb*b*a*amp+2*a*amp*b-2*ra*a^2*amp^2+rb^2*b^2-2*b^2*rb+2*ra*a*amp*rb*b+b^2+2*b*ra*a*amp+ra^2*a^2*amp^2)^(1/2)+2*b*ra*a*amp-a*amp*(a^2*amp^2-2*rb*b*a*amp+2*a*amp*b-2*ra*a^2*amp^2+rb^2*b^2-2*b^2*rb+2*ra*a*amp*rb*b+b^2+2*b*ra*a*amp+ra^2*a^2*amp^2)^(1/2)+rb^2*b^2+b^2-2*b^2*rb-b*(a^2*amp^2-2*rb*b*a*amp+2*a*amp*b-2*ra*a^2*amp^2+rb^2*b^2-2*b^2*rb+2*ra*a*amp*rb*b+b^2+2*b*ra*a*amp+ra^2*a^2*amp^2)^(1/2)-rb*b*(a^2*amp^2-2*rb*b*a*amp+2*a*amp*b-2*ra*a^2*amp^2+rb^2*b^2-2*b^2*rb+2*ra*a*amp*rb*b+b^2+2*b*ra*a*amp+ra^2*a^2*amp^2)^(1/2))*exp((-(1/2)*a*amp-(1/2)*rb*b-(1/2)*b-(1/2)*ra*a*amp-(1/2)*(a^2*amp^2-2*rb*b*a*amp+2*a*amp*b-2*ra*a^2*amp^2+rb^2*b^2-2*b^2*rb+2*ra*a*amp*rb*b+b^2+2*b*ra*a*amp+ra^2*a^2*amp^2)^(1/2))*t)/((b^2*rb+rb*b*a*amp+ra*a^2*amp^2)*(a^2*amp^2-2*rb*b*a*amp+2*a*amp*b-2*ra*a^2*amp^2+rb^2*b^2-2*b^2*rb+2*ra*a*amp*rb*b+b^2+2*b*ra*a*amp+ra^2*a^2*amp^2))+ra*a^2*amp^2/(b^2*rb+rb*b*a*amp+ra*a^2*amp^2);
+	I=getTotalCurrentThreeP2X7ASym(Y,-60*10^-3);
+end

@@ -1,0 +1,8 @@
+global E1 E2 J   
+
+ E2=-15.5e-3;
+    E1=-43e-3;
+    J=[0.1,0.3,1,3,10,30]*1e-6;
+for i=1:length(J)
+    dE(i)=IVShift(model,J(i));
+end

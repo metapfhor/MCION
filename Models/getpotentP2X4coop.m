@@ -1,0 +1,18 @@
+potentP2X4coop.getTotalCurrent=@ getTotalCurrentpotentP2X4coop;
+potentP2X4coop.ode=@ modelODEpotentP2X4coop;
+potentP2X4coop.pulseODE=@ modelPulseODEpotentP2X4coop;
+potentP2X4coop.perfusionResponse=@ perfusionResponsepotentP2X4coop;
+potentP2X4coop.naivePerfusionResponse=@ naivePerfusionResponsepotentP2X4coop;
+potentP2X4coop.naivePerfusionSSE=@ naivePerfusionSSEpotentP2X4coop;
+potentP2X4coop.naivePerfusionVarSSE=@ naivePerfusionVarSSEpotentP2X4coop;
+potentP2X4coop.naivePerfusionResponseExp=@ naivePerfusionResponsepotentP2X4coop;
+potentP2X4coop.naivePerfusionSSEExp=@ naivePerfusionSSEpotentP2X4coop;
+potentP2X4coop.naivePerfusionSSEIntegrator=@ naivePerfusionSSEIntegratorpotentP2X4coop;
+potentP2X4coop.setParams=@ setParamspotentP2X4coop;
+potentP2X4coop.setAuxiliary=@ setAuxiliarypotentP2X4coop;
+potentP2X4coop.getOpen=@ getOpenpotentP2X4coop;
+potentP2X4coop.getDilated=@ getDilatedpotentP2X4coop;
+potentP2X4coop.getWatchedStates=@ getWatchedStatespotentP2X4coop;
+potentP2X4coop.getWatchedLabels=@ getWatchedLabelspotentP2X4coop;
+
+save('potentP2X4coop.mat','potentP2X4coop')

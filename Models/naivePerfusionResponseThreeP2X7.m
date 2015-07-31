@@ -1,0 +1,11 @@
+function [t,I,Y]=naivePerfusionResponseThreeP2X7(ton,toff,Ttot,amp)
+global a1 a2 b1 b2 g12 E12;
+	dt=0.01;
+	A=@(t) amp*(heaviside(t-ton)-heaviside(t-toff));
+	
+	t=0:dt:Ttot.';
+	Y=zeros(length(t),1);
+	
+	Y(:,1)=a1*amp^2*a2/(b1*b2+b2*a1*amp+a1*amp^2*a2)-(1/2)*a2*amp^2*a1*(a1^2*amp^2+2*a1*amp*b1+a1*amp*(a1^2*amp^2-2*b2*a1*amp+2*a1*amp*b1-2*a1*amp^2*a2+b2^2-2*b1*b2+2*a2*amp*b2+b1^2+2*a2*amp*b1+a2^2*amp^2)^(1/2)-2*b2*a1*amp-2*a1*amp^2*a2+a2^2*amp^2+2*a2*amp*b1+2*a2*amp*b2+a2*amp*(a1^2*amp^2-2*b2*a1*amp+2*a1*amp*b1-2*a1*amp^2*a2+b2^2-2*b1*b2+2*a2*amp*b2+b1^2+2*a2*amp*b1+a2^2*amp^2)^(1/2)+b2*(a1^2*amp^2-2*b2*a1*amp+2*a1*amp*b1-2*a1*amp^2*a2+b2^2-2*b1*b2+2*a2*amp*b2+b1^2+2*a2*amp*b1+a2^2*amp^2)^(1/2)+b2^2+b1*(a1^2*amp^2-2*b2*a1*amp+2*a1*amp*b1-2*a1*amp^2*a2+b2^2-2*b1*b2+2*a2*amp*b2+b1^2+2*a2*amp*b1+a2^2*amp^2)^(1/2)+b1^2-2*b1*b2)*exp((-(1/2)*a1*amp-(1/2)*b2-(1/2)*b1-(1/2)*a2*amp+(1/2)*(a1^2*amp^2-2*b2*a1*amp+2*a1*amp*b1-2*a1*amp^2*a2+b2^2-2*b1*b2+2*a2*amp*b2+b1^2+2*a2*amp*b1+a2^2*amp^2)^(1/2))*t)/((b1*b2+b2*a1*amp+a1*amp^2*a2)*(a1^2*amp^2-2*b2*a1*amp+2*a1*amp*b1-2*a1*amp^2*a2+b2^2-2*b1*b2+2*a2*amp*b2+b1^2+2*a2*amp*b1+a2^2*amp^2))-(1/2)*(a1^2*amp^2-2*a1*amp^2*a2-a1*amp*(a1^2*amp^2-2*b2*a1*amp+2*a1*amp*b1-2*a1*amp^2*a2+b2^2-2*b1*b2+2*a2*amp*b2+b1^2+2*a2*amp*b1+a2^2*amp^2)^(1/2)-2*b2*a1*amp+2*a1*amp*b1-b2*(a1^2*amp^2-2*b2*a1*amp+2*a1*amp*b1-2*a1*amp^2*a2+b2^2-2*b1*b2+2*a2*amp*b2+b1^2+2*a2*amp*b1+a2^2*amp^2)^(1/2)-a2*amp*(a1^2*amp^2-2*b2*a1*amp+2*a1*amp*b1-2*a1*amp^2*a2+b2^2-2*b1*b2+2*a2*amp*b2+b1^2+2*a2*amp*b1+a2^2*amp^2)^(1/2)+2*a2*amp*b2+b1^2-b1*(a1^2*amp^2-2*b2*a1*amp+2*a1*amp*b1-2*a1*amp^2*a2+b2^2-2*b1*b2+2*a2*amp*b2+b1^2+2*a2*amp*b1+a2^2*amp^2)^(1/2)+b2^2-2*b1*b2+2*a2*amp*b1+a2^2*amp^2)*a1*amp^2*a2*exp((-(1/2)*a1*amp-(1/2)*b2-(1/2)*b1-(1/2)*a2*amp-(1/2)*(a1^2*amp^2-2*b2*a1*amp+2*a1*amp*b1-2*a1*amp^2*a2+b2^2-2*b1*b2+2*a2*amp*b2+b1^2+2*a2*amp*b1+a2^2*amp^2)^(1/2))*t)/((b1*b2+b2*a1*amp+a1*amp^2*a2)*(a1^2*amp^2-2*b2*a1*amp+2*a1*amp*b1-2*a1*amp^2*a2+b2^2-2*b1*b2+2*a2*amp*b2+b1^2+2*a2*amp*b1+a2^2*amp^2));
+	I=getTotalCurrentThreeP2X7(Y,-60*10^-3);
+end

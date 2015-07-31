@@ -1,0 +1,16 @@
+fullerStickP2X7.getTotalCurrent=@ getTotalCurrentfullerStickP2X7;
+fullerStickP2X7.ode=@ modelODEfullerStickP2X7;
+fullerStickP2X7.naivePerfusionResponse=@ naivePerfusionResponsefullerStickP2X7;
+fullerStickP2X7.naivePerfusionSSE=@ naivePerfusionSSEfullerStickP2X7;
+fullerStickP2X7.naivePerfusionVarSSE=@ naivePerfusionVarSSEfullerStickP2X7;
+fullerStickP2X7.naivePerfusionResponseExp=@ naivePerfusionResponsefullerStickP2X7;
+fullerStickP2X7.naivePerfusionSSEExp=@ naivePerfusionSSEfullerStickP2X7;
+fullerStickP2X7.naivePerfusionSSEIntegrator=@ naivePerfusionSSEIntegratorfullerStickP2X7;
+fullerStickP2X7.setParams=@ setParamsfullerStickP2X7;
+fullerStickP2X7.setAuxiliary=@ setAuxiliaryfullerStickP2X7;
+fullerStickP2X7.getOpen=@ getOpenfullerStickP2X7;
+fullerStickP2X7.getDilated=@ getDilatedfullerStickP2X7;
+fullerStickP2X7.getWatchedStates=@ getWatchedStatesfullerStickP2X7;
+fullerStickP2X7.getWatchedLabels=@ getWatchedLabelsfullerStickP2X7;
+
+save('fullerStickP2X7.mat','fullerStickP2X7')

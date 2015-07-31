@@ -1,0 +1,4 @@
+function generatorMatrixfullP2X7Therm()
+global K1 k1 K2 k3 K3 k5 Ks3 k7 Ks2 k9 Ks1 k11 L1 Ks L3 H1 H2 H3 H4 H5 Kds H7 g12 g34 E12 E34 A V alpha10 alpha1 alpha3 alpha32 alpha100 alpha k2 k4 k6 L2 k8 k10 k12 H6 Q;
+Q=[-k2*A,k2*A,0,0,0,0,0,0,0,0,0,0;k1,-k1-k4*A,0,0,k4*A,0,0,0,0,0,0,0;0,0,-k11-k10*A,k11,0,0,0,k10*A,0,0,0,0;L1,0,k12*A,-k12*A-L1,0,0,0,0,0,0,0,0;0,k3,0,0,-k3-k6*A,k6*A,0,0,0,0,0,0;0,0,0,0,k5,-k5-L3-H7,L3,0,0,0,0,H7;0,0,0,0,0,L2,-k7-L2,k7,0,0,0,0;0,0,k9,0,0,0,k8*A,-k9-k8*A,0,0,0,0;H1,0,0,0,0,0,0,0,-k2*A-H1,k2*A,0,0;0,0,0,0,0,0,0,0,k1,-k1-k4*A,k4*A,0;0,0,0,0,0,0,0,0,0,k3,-k3-k6*A,k6*A;0,0,0,0,0,H6,0,0,0,0,k5,-k5-H6];
+end

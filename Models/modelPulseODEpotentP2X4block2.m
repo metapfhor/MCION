@@ -1,0 +1,69 @@
+function ode = modelPulseODEpotentP2X4block2(ton,toff)
+global k1 k2 k3 k4 k5 k6 k7 k8 k9 k10 k11 k12 k13 k14 k15 k16 k17 k18 kd0 ku0 kd1 ku1 kd2 ku2 kd3 ku3 kdd0 kuu0 kdd1 kuu1 kdd2 kuu2 kdd3 kuu3 L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12 L13 L14 L15 L16 L17 L18 H1 H2 H3 H4 g1 g2 E1 E2 delta epsilon mu A J V n1 n2 n3 v1 v2 v3 r1 r2 r3 w1 w2 w3 s1 s2 s3 u1 u2 u3 q1 q2 q3 A0 J0 IVMon IVMoff;
+
+	ATP=@(t) 0;
+	for i=1:length(ton)
+		ATP= @(t) ATP(t) + (A0*(heaviside(t-ton(i))-heaviside(t-toff(i))));
+	end;
+	IVM=@(t) J0*(heaviside(t-IVMon)-heaviside(t-IVMoff));
+	function dy=model(t,y)
+		setAuxiliarypotentP2X4block2(y);
+		dy=zeros(53,1);
+		A=ATP(t);
+		J=IVM(t);
+		dy(1)=k1*y(2)+ku0*y(9)+H1*y(49)+L1*y(3)+H4*y(53)-(k2*A+kd0*J+L2*J^4/(J^4+delta^4))*y(1);%C1
+		dy(2)=k2*A*y(1)+k3*y(25)+ku0*y(10)+L1*y(4)-(k1+k4*A+kd0*J+H2+L2*J^4/(J^4+delta^4))*y(2);%C2
+		dy(3)=v1*k1*y(4)+ku1*y(11)+L2*J^4/(J^4+delta^4)*y(1)+L3*y(5)-(r1*k2*A+kd1*J+L1+L4*J^4/(J^4+epsilon^4))*y(3);%C3
+		dy(4)=r1*k2*A*y(3)+v1*k3*y(27)+ku1*y(12)+L2*J^4/(J^4+delta^4)*y(2)+L3*y(6)-(v1*k1+r1*k4*A+kd1*J+L1+L4*J^4/(J^4+epsilon^4))*y(4);%C4
+		dy(5)=v2*k1*y(6)+ku2*y(13)+L4*J^4/(J^4+epsilon^4)*y(3)+L5*y(7)-(r2*k2*A+kd2*J+L3+L6*J^4/(J^4+mu^4))*y(5);%C5
+		dy(6)=r2*k2*A*y(5)+v2*k3*y(29)+ku2*y(14)+L4*J^4/(J^4+epsilon^4)*y(4)+L5*y(8)-(v2*k1+r2*k4*A+kd2*J+L3+L6*J^4/(J^4+mu^4))*y(6);%C6
+		dy(7)=v3*k1*y(8)+ku3*y(15)+L6*J^4/(J^4+mu^4)*y(5)-(r3*k2*A+kd3*J+L5)*y(7);%C7
+		dy(8)=r3*k2*A*y(7)+v3*k3*y(31)+ku3*y(16)+L6*J^4/(J^4+mu^4)*y(6)-(v3*k1+r3*k4*A+kd3*J+L5)*y(8);%C8
+		dy(9)=kd0*J*y(1)+kuu0*y(17)+L7*y(11)-(ku0+kdd0*J+L8*J^4/(J^4+delta^4))*y(9);%CD1
+		dy(10)=kd0*J*y(2)+kuu0*y(18)+L7*y(12)-(ku0+kdd0*J+L8*J^4/(J^4+delta^4))*y(10);%CD2
+		dy(11)=w1*k7*y(12)+kd1*J*y(3)+kuu1*y(19)+L8*J^4/(J^4+delta^4)*y(9)+L9*y(13)-(s1*k8*A+ku1+kdd1*J+L7+L10*J^4/(J^4+epsilon^4))*y(11);%CD3
+		dy(12)=s1*k8*A*y(11)+w1*k9*y(35)+kd1*J*y(4)+kuu1*y(20)+L8*J^4/(J^4+delta^4)*y(10)+L9*y(14)-(w1*k7+s1*k10*A+ku1+kdd1*J+L7+L10*J^4/(J^4+epsilon^4))*y(12);%CD4
+		dy(13)=w2*k7*y(14)+kd2*J*y(5)+kuu2*y(21)+L10*J^4/(J^4+epsilon^4)*y(11)+L11*y(15)-(s2*k8*A+ku2+kdd2*J+L9+L12*J^4/(J^4+mu^4))*y(13);%CD5
+		dy(14)=s2*k8*A*y(13)+w2*k9*y(37)+kd2*J*y(6)+kuu2*y(22)+L10*J^4/(J^4+epsilon^4)*y(12)+L11*y(16)-(w2*k7+s2*k10*A+ku2+kdd2*J+L9+L12*J^4/(J^4+mu^4))*y(14);%CD6
+		dy(15)=w3*k7*y(16)+kd3*J*y(7)+kuu3*y(23)+L12*J^4/(J^4+mu^4)*y(13)-(s3*k8*A+ku3+kdd3*J+L11)*y(15);%CD7
+		dy(16)=s3*k8*A*y(15)+w3*k9*y(39)+kd3*J*y(8)+kuu3*y(24)+L12*J^4/(J^4+mu^4)*y(14)-(w3*k7+s3*k10*A+ku3+kdd3*J+L11)*y(16);%CD8
+		dy(17)=kdd0*J*y(9)+L13*y(19)-(kuu0+L14*J^4/(J^4+delta^4))*y(17);%CDD1
+		dy(18)=kdd0*J*y(10)+L13*y(20)-(kuu0+L14*J^4/(J^4+delta^4))*y(18);%CDD2
+		dy(19)=u1*k7*y(20)+kdd1*J*y(11)+L14*J^4/(J^4+delta^4)*y(17)+L15*y(21)-(q1*k14*A+kuu1+L13+L16*J^4/(J^4+epsilon^4))*y(19);%CDD3
+		dy(20)=q1*k14*A*y(19)+u1*k9*y(43)+kdd1*J*y(12)+L14*J^4/(J^4+delta^4)*y(18)+L15*y(22)-(u1*k7+q1*k16*A+kuu1+L13+L16*J^4/(J^4+epsilon^4))*y(20);%CDD4
+		dy(21)=u2*k7*y(22)+kdd2*J*y(13)+L16*J^4/(J^4+epsilon^4)*y(19)+L17*y(23)-(q2*k14*A+kuu2+L15+L18*J^4/(J^4+mu^4))*y(21);%CDD5
+		dy(22)=q2*k14*A*y(21)+u2*k9*y(45)+kdd2*J*y(14)+L16*J^4/(J^4+epsilon^4)*y(20)+L17*y(24)-(u2*k7+q2*k16*A+kuu2+L15+L18*J^4/(J^4+mu^4))*y(22);%CDD6
+		dy(23)=u3*k7*y(24)+kdd3*J*y(15)+L18*J^4/(J^4+mu^4)*y(21)-(q3*k14*A+kuu3+L17)*y(23);%CDD7
+		dy(24)=q3*k14*A*y(23)+u3*k9*y(47)+kdd3*J*y(16)+L18*J^4/(J^4+mu^4)*y(22)-(u3*k7+q3*k16*A+kuu3+L17)*y(24);%CDD8
+		dy(25)=k4*A*y(2)+k5*y(26)+ku0*y(33)+L1*y(27)-(k3+k6*A+kd0*J+H2+L2*J^4/(J^4+delta^4))*y(25);%Q1
+		dy(26)=k6*A*y(25)+ku0*y(34)+L1*y(28)-(k5+kd0*J+H2+L2*J^4/(J^4+delta^4))*y(26);%Q2
+		dy(27)=r1*k4*A*y(4)+v1*k5*y(28)+ku1*y(35)+L2*J^4/(J^4+delta^4)*y(25)+L3*y(29)-(v1*k3+r1*k6*A+kd1*J+L1+L4*J^4/(J^4+epsilon^4))*y(27);%Q3
+		dy(28)=r1*k6*A*y(27)+ku1*y(36)+L2*J^4/(J^4+delta^4)*y(26)+L3*y(30)-(v1*k5+kd1*J+L1+L4*J^4/(J^4+epsilon^4))*y(28);%Q4
+		dy(29)=r2*k4*A*y(6)+v2*k5*y(30)+ku2*y(37)+L4*J^4/(J^4+epsilon^4)*y(27)+L5*y(31)-(v2*k3+r2*k6*A+kd2*J+L3+L6*J^4/(J^4+mu^4))*y(29);%Q5
+		dy(30)=r2*k6*A*y(29)+ku2*y(38)+L4*J^4/(J^4+epsilon^4)*y(28)+L5*y(32)-(v2*k5+kd2*J+L3+L6*J^4/(J^4+mu^4))*y(30);%Q6
+		dy(31)=r3*k4*A*y(8)+v3*k5*y(32)+ku3*y(39)+L6*J^4/(J^4+mu^4)*y(29)-(v3*k3+r3*k6*A+kd3*J+L5)*y(31);%Q7
+		dy(32)=r3*k6*A*y(31)+ku3*y(40)+L6*J^4/(J^4+mu^4)*y(30)-(v3*k5+kd3*J+L5)*y(32);%Q8
+		dy(33)=kd0*J*y(25)+kuu0*y(41)+L7*y(35)-(ku0+kdd0*J+L8*J^4/(J^4+delta^4))*y(33);%QD1
+		dy(34)=kd0*J*y(26)+kuu0*y(42)+L7*y(36)-(ku0+kdd0*J+L8*J^4/(J^4+delta^4))*y(34);%QD2
+		dy(35)=s1*k10*A*y(12)+w1*k11*y(36)+kd1*J*y(27)+kuu1*y(43)+L8*J^4/(J^4+delta^4)*y(33)+L9*y(37)-(w1*k9+s1*k12*A+ku1+kdd1*J+L7+L10*J^4/(J^4+epsilon^4))*y(35);%QD3
+		dy(36)=s1*k12*A*y(35)+kd1*J*y(28)+kuu1*y(44)+L8*J^4/(J^4+delta^4)*y(34)+L9*y(38)-(w1*k11+ku1+kdd1*J+L7+L10*J^4/(J^4+epsilon^4))*y(36);%QD4
+		dy(37)=s2*k10*A*y(14)+w2*k11*y(38)+kd2*J*y(29)+kuu2*y(45)+L10*J^4/(J^4+epsilon^4)*y(35)+L11*y(39)-(w2*k9+s2*k12*A+ku2+kdd2*J+L9+L12*J^4/(J^4+mu^4))*y(37);%QD5
+		dy(38)=s2*k12*A*y(37)+kd2*J*y(30)+kuu2*y(46)+L10*J^4/(J^4+epsilon^4)*y(36)+L11*y(40)-(w2*k11+ku2+kdd2*J+L9+L12*J^4/(J^4+mu^4))*y(38);%QD6
+		dy(39)=s3*k10*A*y(16)+w3*k11*y(40)+kd3*J*y(31)+kuu3*y(47)+L12*J^4/(J^4+mu^4)*y(37)-(w3*k9+s3*k12*A+ku3+kdd3*J+L11)*y(39);%QD7
+		dy(40)=s3*k12*A*y(39)+kd3*J*y(32)+kuu3*y(48)+L12*J^4/(J^4+mu^4)*y(38)-(w3*k11+ku3+kdd3*J+L11)*y(40);%QD8
+		dy(41)=kdd0*J*y(33)+L13*y(43)-(kuu0+L14*J^4/(J^4+delta^4))*y(41);%QDD1
+		dy(42)=kdd0*J*y(34)+L13*y(44)-(kuu0+L14*J^4/(J^4+delta^4))*y(42);%QDD2
+		dy(43)=q1*k16*A*y(20)+u1*k11*y(44)+kdd1*J*y(35)+L14*J^4/(J^4+delta^4)*y(41)+L15*y(45)-(u1*k9+q1*k18*A+kuu1+L13+L16*J^4/(J^4+epsilon^4))*y(43);%QDD3
+		dy(44)=q1*k18*A*y(43)+kdd1*J*y(36)+L14*J^4/(J^4+delta^4)*y(42)+L15*y(46)-(u1*k11+kuu1+L13+L16*J^4/(J^4+epsilon^4))*y(44);%QDD4
+		dy(45)=q2*k16*A*y(22)+u2*k11*y(46)+kdd2*J*y(37)+L16*J^4/(J^4+epsilon^4)*y(43)+L17*y(47)-(u2*k9+q2*k18*A+kuu2+L15+L18*J^4/(J^4+mu^4))*y(45);%QDD5
+		dy(46)=q2*k18*A*y(45)+kdd2*J*y(38)+L16*J^4/(J^4+epsilon^4)*y(44)+L17*y(48)-(u2*k11+kuu2+L15+L18*J^4/(J^4+mu^4))*y(46);%QDD6
+		dy(47)=q3*k16*A*y(24)+u3*k11*y(48)+kdd3*J*y(39)+L18*J^4/(J^4+mu^4)*y(45)-(u3*k9+q3*k18*A+kuu3+L17)*y(47);%QDD7
+		dy(48)=q3*k18*A*y(47)+kdd3*J*y(40)+L18*J^4/(J^4+mu^4)*y(46)-(u3*k11+kuu3+L17)*y(48);%QDD8
+		dy(49)=k1*y(50)-(k2*A+H1)*y(49);%D1
+		dy(50)=k2*A*y(49)+k3*y(51)+H2*y(2)-(k1+k4*A)*y(50);%D2
+		dy(51)=k4*A*y(50)+k5*y(52)+H2*y(25)-(k3+k6*A)*y(51);%D3
+		dy(52)=k6*A*y(51)+H2*y(26)-(k5+H3)*y(52);%D4
+		dy(53)=H3*y(52)-H4*y(53);%Z
+	end
+	ode=@ model;
+end

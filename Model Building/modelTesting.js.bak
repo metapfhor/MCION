@@ -1,0 +1,81 @@
+printing=require('./matlabPrinting.js');
+function makeGlobal(o){
+    for (i in o){
+	global[i]=o[i];
+    }
+}
+makeGlobal(printing);
+
+function createBaseFiles(m) {
+	if (m.current==undefined||m.opened==undefined||m.dilated==undefined) {
+		return;
+	}
+	for (var p in printing) {
+		var printer=new printing[p](m);
+		console.info('Writing File:',printer.name()+'.m');
+		fs.writeFile('./'+printer.name()+'.m',printer.toString())
+	}
+	//create .mat file containing all info for our model for simple loading
+	console.info('Running MATLAB to create model struct...')
+	var exec = require('child_process').exec;
+	exec('matlab < '+printing.matlabGetModel(m).name()+'.m -nodisplay', function callback(error, stdout, stderr){
+		// result
+	});
+	
+	return;
+
+	printer = new matlabODESolver(m);
+	console.info('#########WRITING TO FILE: MATLAB ODE SOLVER############')
+	fs.writeFile('./'+printer.name()+'.m',printer.toString())
+	console.info('Done.')
+	
+	printer = new matlabFDIntegrator(m);
+	console.info('#########WRITING TO FILE: MATLAB FD INTEGRATOR############')
+	fs.writeFile('./'+printer.name()+'.m',printer.toString())
+	console.info('Done.')
+	
+	printer = new matlabGetTotalCurrent(m);
+	console.info('#########WRITING TO FILE: MATLAB TOTAL CURRENT############')
+	fs.writeFile('./'+printer.name()+'.m',printer.toString())
+	console.info('Done.')
+	
+	printer = new matlabNaivePerfusionSSE(m);
+	console.info('#########WRITING TO FILE: MATLAB FD NAIVE PERFUSION ERROR ############')
+	fs.writeFile('./'+printer.name()+'.m',printer.toString())
+	console.info('Done.')
+	
+	printer = new matlabFDErrorIntegrator(m);
+	console.info('#########WRITING TO FILE: MATLAB FD ERROR INTEGRATOR############')
+	fs.writeFile('./'+printer.name()+'.m',printer.toString())
+	console.info('Done.')
+	
+	printer = new matlabNaivePerfusionSSEIntegrator(m);
+	console.info('#########WRITING TO FILE: MATLAB FD NAIVE PERFUSION ERROR INTEGRATOR############')
+	fs.writeFile('./'+printer.name()+'.m',printer.toString())
+	console.info('Done.')
+	
+	printer = new matlabNaivePerfusionResponse(m);
+	console.info('#########WRITING TO FILE: MATLAB ODE NAIVE PERFUSION RESPONSE############')
+	fs.writeFile('./'+printer.name()+'.m',printer.toString())
+	console.info('Done.')
+	
+	//dataError has been made model independent
+	//so no need to generate it each time
+	//printer = new matlabDataError(m);
+	//console.info('#########WRITING TO FILE: MATLAB DATA ERROR############')
+	//fs.writeFile('./'+printer.name()+'.m',printer.toString())
+	//console.info('Done.')
+	
+	printer = new matlabSetParameters(m);
+	console.info('#########WRITING TO FILE: MATLAB SET PARAMETERS############')
+	fs.writeFile('./'+printer.name()+'.m',printer.toString())
+	console.info('Done.')
+	
+	printer = new matlabPlotNaiveResponse(m);
+	console.info('#########WRITING TO FILE: MATLAB PLOT NAIVE RESPONSE############')
+	fs.writeFile('./'+printer.name()+'.m',printer.toString())
+	console.info('Done.')
+
+}
+
+module.exports.createBaseFiles=createBaseFiles

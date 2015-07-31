@@ -1,0 +1,10 @@
+MEX {
+	global:
+		mexFunction;
+		emlrtMexFcnProperties;
+		naivePerfusionSSEPulseP2X4;
+		naivePerfusionSSEPulseP2X4_initialize;
+		naivePerfusionSSEPulseP2X4_terminate;
+	local:
+		*;
+};

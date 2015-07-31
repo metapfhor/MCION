@@ -1,0 +1,23 @@
+P2X4StackDeMix5alt.getTotalCurrent=@ getTotalCurrentP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.ode=@ modelODEP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.pulseODE=@ modelPulseODEP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.perfusionResponse=@ perfusionResponseP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.naivePerfusionResponse=@ naivePerfusionResponseP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.naivePerfusionResponseIV=@ naivePerfusionResponseIVP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.naivePerfusionSSE=@ naivePerfusionSSEP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.naivePerfusionErrVec=@ naivePerfusionErrVecP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.naivePerfusionVarSSE=@ naivePerfusionVarSSEP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.naivePerfusionResponseExp=@ naivePerfusionResponseP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.naivePerfusionSSEExp=@ naivePerfusionSSEP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.naivePerfusionSSEIntegrator=@ naivePerfusionSSEIntegratorP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.setParams=@ setParamsP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.setAuxiliary=@ setAuxiliaryP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.overrideGlobals=@ overrideGlobalsP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.getOpen=@ getOpenP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.getDilated=@ getDilatedP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.getWatchedStates=@ getWatchedStatesP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.getInfGeneratorMatrix=@ generatorMatrixP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.getWatchedLabels=@ getWatchedLabelsP2X4StackDeMix5alt;
+P2X4StackDeMix5alt.naive=@ getNaiveP2X4StackDeMix5alt;
+
+save('P2X4StackDeMix5alt.mat','P2X4StackDeMix5alt')

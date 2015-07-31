@@ -1,0 +1,60 @@
+/*
+ * naivePerfusionSSEIntegratorcalP2X7_emxutil.c
+ *
+ * Code generation for function 'naivePerfusionSSEIntegratorcalP2X7_emxutil'
+ *
+ * C source code generated on: Fri May 16 09:59:48 2014
+ *
+ */
+
+/* Include files */
+#include "rt_nonfinite.h"
+#include "naivePerfusionSSEIntegratorcalP2X7.h"
+#include "naivePerfusionSSEIntegratorcalP2X7_emxutil.h"
+
+/* Function Definitions */
+void emxFree_real_T(emxArray_real_T **pEmxArray)
+{
+  if (*pEmxArray != (emxArray_real_T *)NULL) {
+    if ((*pEmxArray)->canFreeData) {
+      emlrtFreeMex((void *)(*pEmxArray)->data);
+    }
+
+    emlrtFreeMex((void *)(*pEmxArray)->size);
+    emlrtFreeMex((void *)*pEmxArray);
+    *pEmxArray = (emxArray_real_T *)NULL;
+  }
+}
+
+void emxInit_real_T(emxArray_real_T **pEmxArray, int32_T b_numDimensions, const
+                    emlrtRTEInfo *srcLocation, boolean_T doPush)
+{
+  emxArray_real_T *emxArray;
+  int32_T i;
+  *pEmxArray = (emxArray_real_T *)emlrtMallocMex(sizeof(emxArray_real_T));
+  if ((void *)*pEmxArray == NULL) {
+    emlrtHeapAllocationErrorR2012b(srcLocation, emlrtRootTLSGlobal);
+  }
+
+  if (doPush) {
+    emlrtPushHeapReferenceStackR2012b(emlrtRootTLSGlobal, (void *)pEmxArray,
+      (void (*)(void *))emxFree_real_T);
+  }
+
+  emxArray = *pEmxArray;
+  emxArray->data = (real_T *)NULL;
+  emxArray->numDimensions = b_numDimensions;
+  emxArray->size = (int32_T *)emlrtMallocMex((uint32_T)(sizeof(int32_T)
+    * b_numDimensions));
+  if ((void *)emxArray->size == NULL) {
+    emlrtHeapAllocationErrorR2012b(srcLocation, emlrtRootTLSGlobal);
+  }
+
+  emxArray->allocatedSize = 0;
+  emxArray->canFreeData = TRUE;
+  for (i = 0; i < b_numDimensions; i++) {
+    emxArray->size[i] = 0;
+  }
+}
+
+/* End of code generation (naivePerfusionSSEIntegratorcalP2X7_emxutil.c) */

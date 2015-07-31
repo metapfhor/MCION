@@ -1,0 +1,20 @@
+potentP2X4block2.getTotalCurrent=@ getTotalCurrentpotentP2X4block2;
+potentP2X4block2.ode=@ modelODEpotentP2X4block2;
+potentP2X4block2.pulseODE=@ modelPulseODEpotentP2X4block2;
+potentP2X4block2.perfusionResponse=@ perfusionResponsepotentP2X4block2;
+potentP2X4block2.naivePerfusionResponse=@ naivePerfusionResponsepotentP2X4block2;
+potentP2X4block2.naivePerfusionSSE=@ naivePerfusionSSEpotentP2X4block2;
+potentP2X4block2.naivePerfusionVarSSE=@ naivePerfusionVarSSEpotentP2X4block2;
+potentP2X4block2.naivePerfusionResponseExp=@ naivePerfusionResponsepotentP2X4block2;
+potentP2X4block2.naivePerfusionSSEExp=@ naivePerfusionSSEpotentP2X4block2;
+potentP2X4block2.naivePerfusionSSEIntegrator=@ naivePerfusionSSEIntegratorpotentP2X4block2;
+potentP2X4block2.setParams=@ setParamspotentP2X4block2;
+potentP2X4block2.setAuxiliary=@ setAuxiliarypotentP2X4block2;
+potentP2X4block2.overrideGlobals=@ overrideGlobalspotentP2X4block2;
+potentP2X4block2.getOpen=@ getOpenpotentP2X4block2;
+potentP2X4block2.getDilated=@ getDilatedpotentP2X4block2;
+potentP2X4block2.getWatchedStates=@ getWatchedStatespotentP2X4block2;
+potentP2X4block2.getWatchedLabels=@ getWatchedLabelspotentP2X4block2;
+potentP2X4block2.naive=@ getNaivepotentP2X4block2;
+
+save('potentP2X4block2.mat','potentP2X4block2')

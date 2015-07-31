@@ -1,0 +1,18 @@
+omarP2X4cooppotent1.getTotalCurrent=@ getTotalCurrentomarP2X4cooppotent1;
+omarP2X4cooppotent1.ode=@ modelODEomarP2X4cooppotent1;
+omarP2X4cooppotent1.pulseODE=@ modelPulseODEomarP2X4cooppotent1;
+omarP2X4cooppotent1.perfusionResponse=@ perfusionResponseomarP2X4cooppotent1;
+omarP2X4cooppotent1.naivePerfusionResponse=@ naivePerfusionResponseomarP2X4cooppotent1;
+omarP2X4cooppotent1.naivePerfusionSSE=@ naivePerfusionSSEomarP2X4cooppotent1;
+omarP2X4cooppotent1.naivePerfusionVarSSE=@ naivePerfusionVarSSEomarP2X4cooppotent1;
+omarP2X4cooppotent1.naivePerfusionResponseExp=@ naivePerfusionResponseomarP2X4cooppotent1;
+omarP2X4cooppotent1.naivePerfusionSSEExp=@ naivePerfusionSSEomarP2X4cooppotent1;
+omarP2X4cooppotent1.naivePerfusionSSEIntegrator=@ naivePerfusionSSEIntegratoromarP2X4cooppotent1;
+omarP2X4cooppotent1.setParams=@ setParamsomarP2X4cooppotent1;
+omarP2X4cooppotent1.setAuxiliary=@ setAuxiliaryomarP2X4cooppotent1;
+omarP2X4cooppotent1.getOpen=@ getOpenomarP2X4cooppotent1;
+omarP2X4cooppotent1.getDilated=@ getDilatedomarP2X4cooppotent1;
+omarP2X4cooppotent1.getWatchedStates=@ getWatchedStatesomarP2X4cooppotent1;
+omarP2X4cooppotent1.getWatchedLabels=@ getWatchedLabelsomarP2X4cooppotent1;
+
+save('omarP2X4cooppotent1.mat','omarP2X4cooppotent1')
